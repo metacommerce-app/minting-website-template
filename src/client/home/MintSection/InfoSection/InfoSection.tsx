@@ -2,6 +2,9 @@ import React from 'react';
 import Widget from './Widget';
 
 const InfoSection: React.FC = () => {
+  /**
+   * TODO: get that data from either the config or wagmi
+   */
   return (
     <div className='grid grid-cols-3 w-full gap-auto my-4'>
       <Widget title='Mint Price' value='Free' />

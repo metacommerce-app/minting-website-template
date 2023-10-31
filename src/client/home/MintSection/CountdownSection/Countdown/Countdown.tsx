@@ -12,6 +12,9 @@ const Countdown: React.FC<CountdownProps> = ({ target }) => {
 
   const [timeLeft, setTimeLeft] = useState({days: 0, hours: 0, minutes: 0, seconds: 0 });
 
+  /**
+   * TODO: switch to dayjs
+   */
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date();

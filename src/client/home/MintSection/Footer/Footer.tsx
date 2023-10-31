@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
     <div className={`flex flex-row ${className}`}>
-      <div className='flex flex-row items-center '>
+      <div className='flex flex-row items-center'>
         <div>
           { t("Powered by") }
         </div>
@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         </div>
       </div>
       <div className='flex flex-grow'></div>
-      <div className='flex items-center'>
+      <div className='flex items-center hidden lg:block'>
         <GithubButton />
       </div>
     </div>

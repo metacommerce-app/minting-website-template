@@ -19,7 +19,7 @@ const MintSection: React.FC<MintSectionProps> = ({ className }) => {
         <Divider className='mt-5' />
         <InfoSection />
         <Divider />
-        <CountdownSection targetDate={new Date("2023/11/04")} />
+        <CountdownSection />
         <Divider />
         <MintingButton className='mt-4' />
         <DetailsSection />

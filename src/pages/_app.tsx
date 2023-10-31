@@ -11,16 +11,20 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import AuthProvider from '@/providers/AuthProvider';
 import Head from 'next/head';
+import { config } from '@/client/types/config';
 
 const { chains, publicClient } = configureChains(
   [mainnet, goerli],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID! }), publicProvider()]
+  [alchemyProvider({ apiKey: config.alchemyId }), publicProvider()]
 );
 
-const { connectors } = getDefaultWallets({ appName: 'Pop Art Cats', projectId: 'c82bf580bc75f857794502f4849db05b', chains });
+const { connectors } = getDefaultWallets({ appName: config.appName, projectId: config.walletConnectProjectId, chains });
 
 const wagmiConfig = createConfig({ autoConnect: true, connectors, publicClient })
 
+/**
+ * TODO: fix the font thing 
+ */
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>

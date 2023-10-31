@@ -5,11 +5,10 @@ import { toParsedAddress } from '@/client/home/utils';
 import { config } from '@/client/types/config';
 
 interface DetailsWidgetProps {
-  children?: React.ReactNode | React.ReactNode[];
   className?: string;
 }
 
-const DetailsWidget: React.FC<DetailsWidgetProps> = ({ children, className }) => {
+const DetailsWidget: React.FC<DetailsWidgetProps> = ({ className }) => {
   const { t } = useTranslation()
 
   return (
