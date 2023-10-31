@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import UseThisTemplateButton from './GithubButton';
+import GithubButton from './GithubButton';
+import Link from 'next/link';
 
 interface FooterProps {
   className?: string;
@@ -17,12 +18,14 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           { t("Powered by") }
         </div>
         <div>
-          <Image src="/metacommerce-logo.svg" width={210} height={60} alt="Metacommerce Logo" />
+          <Link href="https://metacommerce.app" target='__blank'>
+            <Image src="/metacommerce-logo.svg" width={210} height={60} alt="Metacommerce Logo" />
+          </Link>
         </div>
       </div>
       <div className='flex flex-grow'></div>
       <div className='flex items-center'>
-        <UseThisTemplateButton />
+        <GithubButton />
       </div>
     </div>
   );

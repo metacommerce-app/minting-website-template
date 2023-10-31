@@ -3,8 +3,8 @@ export const config = {
   startDate: "",
   endDate: "",
   twitter: {
-    url: "",
-    handle: ""
+    url: "https://twitter.com/popartcats",
+    handle: "@popartcats"
   },
   chain: "goerli",
 }
