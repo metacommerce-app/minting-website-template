@@ -15,6 +15,8 @@ const MintingButton: React.FC<MintingButtonProps> = ({ className }) => {
   const openModal = () => setOpen(true);
   const closeModal = () => setOpen(false);
 
+  
+
   return (
     <>
       <Button onClick={openModal} className={`group bg-pink-200 flex flex-row items-center p-4 w-full rounded-md hover:bg-gray-900 hover:text-white ${className}`}>
