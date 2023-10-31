@@ -13,9 +13,13 @@ interface CheckoutModalProps {
 const CheckoutModal: React.FC<CheckoutModalProps> = ({open, onClose}) => {
   const [numberOfItems, setNumberOfItems] = useState(0)
 
+  const handleChange = (value: number) => {
+    setNumberOfItems(value)
+  }
+
   return (
     <Modal open={open} onClose={onClose}>
-      <NumberOfItemsSelector numberOfItems={numberOfItems} onChange={setNumberOfItems} />
+      <NumberOfItemsSelector numberOfItems={numberOfItems} onChange={handleChange} />
       <OrderDetails numberOfItems={numberOfItems} className='mb-4 ' />
       <WalletDetails className='mt-4' />
       <MintButton numberOfItems={numberOfItems} className='mt-5' />

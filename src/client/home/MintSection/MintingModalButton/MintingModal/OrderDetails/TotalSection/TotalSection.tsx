@@ -6,6 +6,10 @@ interface TotalSectionProps {
   totalUsd: number;
 }
 
+
+/**
+ * TODO: Get this programmatically / parse total/totalUsd 
+ */
 const TotalSection: React.FC<TotalSectionProps> = ({total, totalUsd}) => {
   const { t } = useTranslation()
 

@@ -9,6 +9,9 @@ interface OrderDetailsProps {
   className?: string;
 }
 
+/**
+ * TODO: get this programmatically 
+ */
 const OrderDetails: React.FC<OrderDetailsProps> = ({numberOfItems, className}) => {
   const { t } = useTranslation()
 

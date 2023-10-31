@@ -5,6 +5,10 @@ interface GasPriceSectionProps {
   numberOfItems: number;
 }
 
+
+/**
+ * TODO: get this programmatically 
+ */
 const GasPriceSection: React.FC<GasPriceSectionProps> = ({numberOfItems}) => {
   const { t } = useTranslation()
 

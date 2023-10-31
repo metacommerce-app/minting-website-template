@@ -1,13 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { config } from '@/client/types/config';
+import dayjs from 'dayjs';
 
 const CountdownTitle: React.FC = () => {
   const { t } = useTranslation()
 
-  const now = new Date()
-  const isStarted = now.getTime() > new Date(config.startDate).getTime()
-  const isFinished = now.getTime() > new Date(config.endDate).getTime()
+  const now = dayjs()
+  const isStarted = now.isAfter(dayjs(config.startDate))
+  const isFinished = now.isAfter(dayjs(config.endDate))
 
   if (isFinished) {
     return t("Minting has ended")

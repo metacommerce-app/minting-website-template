@@ -18,7 +18,7 @@ const { chains, publicClient } = configureChains(
   [alchemyProvider({ apiKey: config.alchemyId }), publicProvider()]
 );
 
-const { connectors } = getDefaultWallets({ appName: config.appName, projectId: config.walletConnectProjectId, chains });
+const { connectors } = getDefaultWallets({ appName: config.appName, projectId: config.walletConnectProjectId!, chains });
 
 const wagmiConfig = createConfig({ autoConnect: true, connectors, publicClient })
 

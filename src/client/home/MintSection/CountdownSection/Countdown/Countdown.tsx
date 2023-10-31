@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import CountdownWidget from './CountdownWidget';
+import dayjs from 'dayjs';
 
 interface CountdownProps {
   target: Date;
@@ -17,22 +18,23 @@ const Countdown: React.FC<CountdownProps> = ({ target }) => {
    */
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const now = new Date();
-
-      const difference = target.getTime() - now.getTime();
-
+      const now = dayjs();
+      const targetTime = dayjs(target);
+  
+      const difference = targetTime.diff(now);
+  
       if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((difference / (1000 * 60)) % 60);
-        const seconds = Math.floor((difference / 1000) % 60);
-
+        const days = targetTime.diff(now, 'day');
+        const hours = targetTime.subtract(days, 'day').diff(now, 'hour');
+        const minutes = targetTime.subtract(days, 'day').subtract(hours, 'hour').diff(now, 'minute');
+        const seconds = targetTime.subtract(days, 'day').subtract(hours, 'hour').subtract(minutes, 'minute').diff(now, 'second');
+  
         setTimeLeft({ days, hours, minutes, seconds });
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
-
+  
     const timerId = setInterval(calculateTimeLeft, 1000);
     
     // Clean up the interval when the component is unmounted
