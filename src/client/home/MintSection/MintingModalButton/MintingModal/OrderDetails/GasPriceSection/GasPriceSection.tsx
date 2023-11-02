@@ -1,4 +1,6 @@
-import React from 'react';
+import { useMint } from '@/client/hooks/useMint';
+import { useNftDetails } from '@/client/home/useNftDetails';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface GasPriceSectionProps {
@@ -11,7 +13,7 @@ interface GasPriceSectionProps {
  */
 const GasPriceSection: React.FC<GasPriceSectionProps> = ({numberOfItems}) => {
   const { t } = useTranslation()
-
+  const { gas } = useNftDetails();
   return (
     <div>
       <div className='flex flex-row text-gray-500 leading-none'>
@@ -20,13 +22,13 @@ const GasPriceSection: React.FC<GasPriceSectionProps> = ({numberOfItems}) => {
         </div>
         <div className='flex flex-grow'></div>
         <div>
-          0.043 ETH
+          {`${gas.priceETH ?? "0.0000"} ETH`}
         </div>
       </div>
       <div className='flex flex-row text-gray-500 text-xs'>
         <div className='flex flex-grow'></div>
         <div className=''>
-          ~ $22.41
+          ~ ${`${gas.priceUSD ?? "0.00"}`}
         </div>
       </div>
     </div>

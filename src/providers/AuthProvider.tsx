@@ -5,20 +5,19 @@ import PageSpinner from '@/components/spinners/PageSpinner';
 import { useAccount, useDisconnect } from 'wagmi';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 
-
 interface AuthProviderProps {
   children: React.ReactNode | React.ReactNode[];
 }
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const { address, isConnecting } = useAccount()
-  const { disconnectAsync, isLoading } = useDisconnect()
-  
-	const { openConnectModal } = useConnectModal()
+  const { address, isConnecting } = useAccount();
+  const { disconnectAsync, isLoading } = useDisconnect();
+
+  const { openConnectModal } = useConnectModal();
 
   const logout = async () => {
-    await disconnectAsync()
-  }
+    await disconnectAsync();
+  };
 
   const wrapper: AuthContextProps = useMemo(
     () => ({

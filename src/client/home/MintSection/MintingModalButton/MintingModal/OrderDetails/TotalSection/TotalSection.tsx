@@ -1,3 +1,4 @@
+import { useNftDetails } from '@/client/home/useNftDetails';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -12,6 +13,7 @@ interface TotalSectionProps {
  */
 const TotalSection: React.FC<TotalSectionProps> = ({total, totalUsd}) => {
   const { t } = useTranslation()
+  const { gas } = useNftDetails()
 
   return (
     <div>
@@ -21,13 +23,13 @@ const TotalSection: React.FC<TotalSectionProps> = ({total, totalUsd}) => {
         </div>
         <div className='flex flex-grow'></div>
         <div>
-          0.00 ETH
+          {gas.priceETH ?? "0.0000"} ETH
         </div>
       </div>
       <div className='flex flex-row text-gray-500 text-xs'>
         <div className='flex flex-grow'></div>
         <div className=''>
-          ~ $0.00
+          ~ ${gas.priceUSD ?? "0.00"}
         </div>
       </div>
     </div>

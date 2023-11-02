@@ -7,14 +7,14 @@ interface ConnectButtonProps {
   className?: string;
 }
 
-const ConnectButton: React.FC<ConnectButtonProps> = ({className}) => {
-  const { login } = useAuth()
+const ConnectButton: React.FC<ConnectButtonProps> = ({ className }) => {
+  const { login } = useAuth();
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <Button onClick={login} className={`w-full border border-gray-500 p-2 bg-gray-900 text-white !rounded-md ${className}`}>
-      {t("Connect Wallet")}
+      {t('Connect Wallet')}
     </Button>
   );
 };

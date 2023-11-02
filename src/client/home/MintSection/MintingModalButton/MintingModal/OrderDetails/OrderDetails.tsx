@@ -14,7 +14,6 @@ interface OrderDetailsProps {
  */
 const OrderDetails: React.FC<OrderDetailsProps> = ({numberOfItems, className}) => {
   const { t } = useTranslation()
-
   return (
     <div className={`flex flex-col w-full ${className}`}>
       <div className='my-4 uppercase font-bold text-md text-gray-800'>

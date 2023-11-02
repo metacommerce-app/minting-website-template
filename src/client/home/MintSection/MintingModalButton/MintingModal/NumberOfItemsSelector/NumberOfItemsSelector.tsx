@@ -1,18 +1,22 @@
 import React from 'react';
 import Plus from './Plus';
 import Minus from './Minus';
+import DisplayIf from '@/components/conditionals/DisplayIf';
 
 interface NumberOfItemsSelectorProps {
   numberOfItems: number;
+  isDisabled: boolean;
   onChange: (value: number) => void;
 }
 
-const NumberOfItemsSelector: React.FC<NumberOfItemsSelectorProps> = ({ numberOfItems, onChange }) => {
+const NumberOfItemsSelector: React.FC<NumberOfItemsSelectorProps> = ({ numberOfItems, onChange, isDisabled}) => {
   const handleAddItem = (n: number) => {
+    if (isDisabled) return;
     onChange(numberOfItems + n)
   }
 
   const handleRemoveItem = (n: number) => {
+    if (isDisabled) return;
     onChange(Math.max(numberOfItems - n, 0))
   }
 

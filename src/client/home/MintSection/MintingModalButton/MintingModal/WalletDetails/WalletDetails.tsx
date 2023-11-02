@@ -10,22 +10,18 @@ interface WalletDetailsProps {
   className?: string;
 }
 
-const WalletDetails: React.FC<WalletDetailsProps> = ({className}) => {
-  const { address, login } = useAuth()
+const WalletDetails: React.FC<WalletDetailsProps> = ({ className }) => {
+  const { address } = useAuth();
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <DisplayIf condition={!!address}>
       <Divider className='mt-4' />
       <div className={`flex flex-row leading-none ${className}`}>
         <div className='flex flex-col'>
-          <div className='text-gray-900 font-bold'>
-            {t("Buying as")}
-          </div>
-          <div className='text-xs'>
-            {toParsedAddress(String(address))}
-          </div>
+          <div className='text-gray-900 font-bold'>{t('Buying as')}</div>
+          <div className='text-xs'>{toParsedAddress(String(address))}</div>
         </div>
         <div className='flex flex-grow'></div>
         <div>
